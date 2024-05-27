@@ -1,0 +1,50 @@
+package com.codigosiete;
+
+//Importar scanner
+import java.util.Scanner;
+import java.util.HashMap;
+
+public class Código7 {
+	//Agregar método main
+	public static void main(String[] args) {
+
+	    Scanner s = new Scanner(System.in); //Agregar System.in
+
+	    HashMap<String, String> capitales = new HashMap<>(); //Cambiar a String, String valores que acepta el HashMap
+
+	    capitales.put("Canadá", "Otawwa");
+	    capitales.put("Estados Unidos", "Washington DC");
+	    capitales.put("México", "México DF");
+	    capitales.put("Belice", "Belmopán");
+	    capitales.put("Costa rica", "San José");
+	    capitales.put("El Salvador","San Salvador"); //Agregar capital de El Salvador
+	    capitales.put("Guatemala", "Ciudad de Guatemala");
+	    capitales.put("Honduras", "Tegucigalpa");
+	    capitales.put("Nicaragua", "Managua");
+	    capitales.put("Panamá", "Panamá");
+	   
+	    String c = "";
+	    do {
+	      System.out.print("Escribe el nombre de un país y te diré su capital o escribe salir:  "); //Informar la salida 
+	      c = s.nextLine();
+	      
+	      if (!c.equals("salir")) {
+	        if (capitales.containsKey(c)) { //poner capitales adecuadamente, cambiar a containsKey
+	          System.out.print("La capital de " + c);
+	          System.out.println(" es " + capitales.get(c)); //Usar método get()
+	        } else {
+	          System.out.print("No conozco la respuesta ");
+	          System.out.print("¿cuál es la capital de " + c + "?: ");
+	          String ca = s.nextLine();
+	          capitales.put(c, ca);
+	          System.out.println("El país es: " + c + " y la capital es: " + ca); //Colocar nueva respuesta, recién agregada
+	          System.out.println("Gracias por enseñarme nuevas capitales");
+	        }
+	      }
+	    } while (!c.equals("salir"));
+	    s.close();
+	  }
+	}
+
+
+	
