@@ -1,0 +1,41 @@
+package com.codigocinco;
+
+import java.util.Scanner;
+
+public class Codigo5 {
+	public static void main(String[] args) {
+		//Agregar System.in
+        Scanner s = new Scanner(System.in);
+        System.out.print("Introduzca un número: ");
+        String ni = s.nextLine();
+        
+        // Conversión de cadena a entero
+        int inte = Integer.parseInt(ni);
+        int c = inte; // Guardar el valor original del número
+
+        int afo = 0;
+        int noAfo = 0;
+
+        // Procesar cada dígito del número
+        while (inte > 0) {
+            int digito = inte % 10; // Obtener el último dígito
+            if (digito == 3 || digito == 7 || digito == 8 || digito == 9) {
+                afo++;
+            } else {
+                noAfo++;
+            }
+            inte /= 10; // Reducir el número eliminando el último dígito
+        }
+
+        // Imprimir si el número es afortunado o no
+        if (afo > noAfo) {
+            System.out.println("El " + c + " es un número afortunado.");
+        } else {
+            System.out.println("El " + c + " no es un número afortunado.");
+        }
+
+        s.close(); // Cerrar el Scanner
+    }
+}
+
+
